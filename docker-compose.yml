@@ -15,7 +15,6 @@ services:
     networks:
       - net-172.20.99.0
       - net-10.9.0.0
-    tty: yes
 
   unreachable:
     build: ./images/qa

@@ -4,7 +4,9 @@ Simple SSRF vulnerabilitie Lab in docker
 
 ## Estructura
 
+![1687996400666.png](src/1687996400666.png)
 
+Parámetro inyectable `url`
 
 ## 🚀 Uso
 
