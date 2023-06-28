@@ -1,0 +1,36 @@
+services:
+  alice:
+    build: ./images/alice
+    ports:
+      - "22"
+    networks:
+      - net-172.20.99.0
+
+  principal:
+    build: ./images/production
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - net-172.20.99.0
+      - net-10.9.0.0
+    tty: yes
+
+  unreachable:
+    build: ./images/qa
+    networks:
+      - net-10.9.0.0
+
+networks:
+  net-10.9.0.0:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.9.0.0/24
+  
+  net-172.20.99.0:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.99.0/24
